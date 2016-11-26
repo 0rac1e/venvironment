@@ -1,0 +1,22 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/trusty64"
+  config.vm.box_check_update = false
+
+  # Create a private network, which allows host-only access to the machine
+  # using a specific IP.
+  config.vm.network "private_network", ip: "10.10.11.11"
+  config.vm.network "private_network", ip: "10.10.10.11"
+  config.vm.network "private_network", ip: "172.168.0.1"
+
+  config.vm.provision "shell",
+  run:"always",
+  inline: <<-SHELL
+    mkdir -p /etc/balance
+    cp /vagrant/* /etc/balance
+    chmod +x /etc/balance/check.sh
+    /etc/balance/check.sh
+  SHELL
+end

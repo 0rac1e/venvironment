@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# LAN interface
+IF0="eth3"
+
+# WAN interface 1
+IF1="eth1"
+
+# WAN interface 2
+IF2="eth2"
+
+IP1="10.10.11.11"
+IP2="10.10.10.11"
+
+# gateway 1
+P1="10.10.11.10"
+# gateway 2
+P2="10.10.10.10"
+
+# LAN netmask
+P0_NET="172.168.0.0/24"
+# WAN1 netmask
+P1_NET="10.10.11.0/24"
+# WAN2 netmask
+P2_NET="10.10.10.0/24"
+
+
+TBL1="provider1"
+TBL2="provider2"
+
+# Realtive weight of channels bandwidth
+W1="2"
+W2="1"
